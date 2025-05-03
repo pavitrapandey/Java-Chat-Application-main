@@ -1,0 +1,29 @@
+services:
+  mongo:
+    image: mongo:5.0
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+        - mongo_db:/data/db
+    networks:
+      - app-network
+
+  boot-app:
+        image: pavitrapandey77/chatappbackend
+        build:
+            context: .
+            dockerfile: Dockerfile
+        environment:
+          - SPRING_DATA_MONGODB_URI=mongodb://mongo:27017/chatapp
+        depends_on:
+          - mongo
+        networks:
+            - app-network
+
+volumes:
+  mongo_db:
+
+
+networks:
+  app-network:

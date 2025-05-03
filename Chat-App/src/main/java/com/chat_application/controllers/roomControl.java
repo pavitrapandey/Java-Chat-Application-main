@@ -1,6 +1,7 @@
 package com.chat_application.controllers;
 
 import com.chat_application.Service.roomService;
+import com.chat_application.config.AppConstants;
 import com.chat_application.entities.Message;
 import com.chat_application.entities.Room;
 import com.chat_application.repositories.roomRepo;
@@ -14,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/rooms")
-@CrossOrigin("/http://localhost:5173")
+@CrossOrigin(AppConstants.FRONT_END_URL)
 public class roomControl {
 
     @Autowired

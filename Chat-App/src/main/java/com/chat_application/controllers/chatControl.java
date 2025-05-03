@@ -1,6 +1,7 @@
 package com.chat_application.controllers;
 
 
+import com.chat_application.config.AppConstants;
 import com.chat_application.entities.Message;
 import com.chat_application.entities.Room;
 import com.chat_application.playload.MessageRequest;
@@ -17,7 +18,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Controller
-@CrossOrigin("/http://localhost:5173")
+@CrossOrigin(AppConstants.FRONT_END_URL)
 public class chatControl {
     private roomRepo roomRepo;
 
